@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+
+
+
+.d{
+
+    background-image: url(/assets/bg.png);
+}
