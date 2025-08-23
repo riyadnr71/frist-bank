@@ -19,7 +19,7 @@ document.getElementById('add-money-btn').addEventListener('click',function(e){
 
     if(addAccountNumber.length < 11){
 
-        alert('A sala moja nes ! thik Numbe de he!!😂😂')
+        alert(' thik Numbe de he!!😂😂')
         return;
     }
 
@@ -30,18 +30,64 @@ document.getElementById('add-money-btn').addEventListener('click',function(e){
 
 
     if(addPinNumber !== validPin){
-        alert('A sala Chor !! thik pin Number de!!😂😂')
+        alert('thik pin Number de!!😂😂')
         return;
     }
 
 
-    
 
 
     const netBalance = addAmount + availaBalance; 
 
     document.getElementById('availa-balance').innerText = netBalance
 })
+
+
+        // Cashout money feature
+
+
+        const cashoutPin = 6473;
+
+            document.getElementById('withdraw-button').addEventListener('click', function(e){
+                e.preventDefault()
+
+                const AgentNumber = document.getElementById('Agent-num').value
+                const amount = parseInt(document.getElementById('withdraw-amount').value)
+                const cashPin = parseInt(document.getElementById('cash-pin').value)
+
+                const availaBalance = parseInt(document.getElementById('availa-balance').innerText)
+
+                   
+                    if(AgentNumber.length < 11){
+
+                        alert(' thik Numbe de he!!😂😂')
+                        return;
+                    }
+
+
+                
+                if(cashPin !== cashoutPin){
+                alert('thik pin Number de!!😂😂')
+                return;
+                    }
+
+
+                const netBalanceCash = availaBalance - amount;
+
+                document.getElementById('availa-balance').innerText = netBalanceCash
+
+
+            })
+
+
+
+
+
+
+
+
+
+
 
 
 // toggling feature
