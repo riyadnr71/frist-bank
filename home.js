@@ -82,29 +82,52 @@ document.getElementById('add-money-btn').addEventListener('click',function(e){
 
 
 
+            // function to toggle
+
+            function handleToggle(id){
 
 
+                const froms = document.getElementsByClassName('from')
+            
+
+            for(const form of froms){
+                form.style.display = 'none'
+            }
+
+            document.getElementById(id).style.display = 'block'
 
 
-
-
-
+            }
 
 // toggling feature
 
 
+
+                //  <!-- add money -->
+
         document.getElementById('add-button').addEventListener('click',function(){
             
-            document.getElementById('cash').style.display = 'none';
-            document.getElementById('add').style.display = 'block'
+        
+            handleToggle('add')
+           
         })
 
 
-        document.getElementById('cash-button').addEventListener('click',function(){
 
-            console.log('nisa')
+        //  <!-- CashOut -->
+
+
+        document.getElementById('cash-button').addEventListener('click',function(){
             
-            document.getElementById('add').style.display = 'none'
-            document.getElementById('cash').style.display = 'block'
+            
+            handleToggle('cash')
+        })
+
+            // trasfer Money
+
+        document.getElementById('transfer-button').addEventListener('click',function(){
+
+        
+            handleToggle('transfer')
         })
 
