@@ -42,3 +42,23 @@ document.getElementById('add-money-btn').addEventListener('click',function(e){
 
     document.getElementById('availa-balance').innerText = netBalance
 })
+
+
+// toggling feature
+
+
+        document.getElementById('add-button').addEventListener('click',function(){
+            
+            document.getElementById('cash').style.display = 'none';
+            document.getElementById('add').style.display = 'block'
+        })
+
+
+        document.getElementById('cash-button').addEventListener('click',function(){
+
+            console.log('nisa')
+            
+            document.getElementById('add').style.display = 'none'
+            document.getElementById('cash').style.display = 'block'
+        })
+
