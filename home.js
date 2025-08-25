@@ -3,17 +3,77 @@ const validNumber = 11111111111;
 
 const validPin = 6472;
 
+// function to get input value
+function getInputValueNumber(id){
+   const inputField = document.getElementById(id)
 
+   const inputFieldValue = inputField.value
+
+   const inputFieldValueNumber = parseInt(inputFieldValue);
+
+
+   return inputFieldValueNumber;
+
+   
+
+}
+
+    // function to get input
+
+
+function getInputValue(id){
+   const inputField = document.getElementById(id)
+
+   const inputFieldValue = inputField.value
+
+   return inputFieldValue;
+}
+
+
+
+// function to get innertext
+
+function getInnertextNumber(id){
+
+   const Field = document.getElementById(id)
+
+   const inputFielInnertext = Field.innerText
+
+   const inputFieldInnertextNumber = parseInt(inputFielInnertext);
+
+
+   return inputFieldInnertextNumber;
+
+
+}
+
+
+// function to get innertext available balance
+    function getAvailbleBalance(value){
+        const AvailbleBalance = document.getElementById('availa-balance')
+        AvailbleBalance.innerText = value
+    }
+
+
+
+
+
+
+// add money feafure
 
 document.getElementById('add-money-btn').addEventListener('click',function(e){
     e.preventDefault()
 
-    const bank = document.getElementById("bank").value
-    const addAccountNumber =document.getElementById("account-number").value
-    const addAmount = parseInt(document.getElementById("add-amount").value)
-    const addPinNumber = parseInt(document.getElementById("add-pin").value)
+    const bank = getInputValue("bank")
 
-    const availaBalance = parseInt(document.getElementById('availa-balance').innerText)
+    const addAccountNumber = getInputValueNumber("account-number")
+
+    const addAmount = getInputValueNumber('add-amount')
+
+    const addPinNumber = getInputValueNumber('add-pin')
+    
+
+    const availaBalance = getInnertextNumber('availa-balance')
 
 
 
@@ -39,7 +99,7 @@ document.getElementById('add-money-btn').addEventListener('click',function(e){
 
     const netBalance = addAmount + availaBalance; 
 
-    document.getElementById('availa-balance').innerText = netBalance
+      getAvailbleBalance(netBalance)
 })
 
 
@@ -51,11 +111,14 @@ document.getElementById('add-money-btn').addEventListener('click',function(e){
             document.getElementById('withdraw-button').addEventListener('click', function(e){
                 e.preventDefault()
 
-                const AgentNumber = document.getElementById('Agent-num').value
-                const amount = parseInt(document.getElementById('withdraw-amount').value)
-                const cashPin = parseInt(document.getElementById('cash-pin').value)
+                const AgentNumber = getInputValueNumber('Agent-num')
 
-                const availaBalance = parseInt(document.getElementById('availa-balance').innerText)
+                const amount = getInputValueNumber('withdraw-amount')
+
+                const cashPin = getInputValueNumber('cash-pin')
+
+                const availaBalance =getInnertextNumber('availa-balance')
+
 
                    
                     if(AgentNumber.length < 11){
@@ -74,7 +137,7 @@ document.getElementById('add-money-btn').addEventListener('click',function(e){
 
                 const netBalanceCash = availaBalance - amount;
 
-                document.getElementById('availa-balance').innerText = netBalanceCash
+               getAvailbleBalance(netBalanceCash) 
 
 
             })
@@ -98,36 +161,106 @@ document.getElementById('add-money-btn').addEventListener('click',function(e){
 
 
             }
+            
+            // function to toggle  style
+
+            function toggleStyle(id){
+
+                const formBtns = document.getElementsByClassName('form-btn')
+
+                for(const btn of formBtns){
+                btn.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]')
+                btn.classList.add('border-gray-300')
+
+            }
+
+            document.getElementById(id).classList.remove( 'border-gray-300')
+            document.getElementById(id).classList.add('border-[#0874f2]', 'bg-[#0874f20d]')
+        
+            return;
+
+            }
+
+        
+
+
+
 
 // toggling feature
 
 
 
-                //  <!-- add money -->
+                //  <!-- add money --> button
 
         document.getElementById('add-button').addEventListener('click',function(){
             
         
             handleToggle('add')
+
+            toggleStyle('add-button')
+            
+
+
            
         })
 
 
 
-        //  <!-- CashOut -->
+        //  <!-- CashOut --> button
 
 
         document.getElementById('cash-button').addEventListener('click',function(){
             
             
             handleToggle('cash')
+
+            toggleStyle('cash-button')
         })
 
-            // trasfer Money
+            // trasfer Money button
 
         document.getElementById('transfer-button').addEventListener('click',function(){
 
         
             handleToggle('transfer')
+            toggleStyle('transfer-button')
+            
         })
+
+
+        // Get-Bonus-button
+         document.getElementById('Get-Bonus-button').addEventListener('click',function(){
+
+        
+            // handleToggle('getBonus')
+            toggleStyle('Get-Bonus-button')
+
+         })
+
+
+        //  <!-- Pay Bill -->
+
+
+        document.getElementById('payBill-button').addEventListener('click',function(){
+
+        
+            handleToggle('pay-Bill')
+            toggleStyle('payBill-button')
+
+   })
+
+
+//    transactions-button
+
+
+   document.getElementById('transactions-button').addEventListener('click',function(){
+
+        
+            handleToggle('transactions')
+            toggleStyle('transactions-button')
+
+   })
+
+
+
 
